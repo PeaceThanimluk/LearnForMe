@@ -16,6 +16,7 @@ class Employee:
     
 
 obj1 = Employee("peace" , 10)
+obj1.salary = 1000 #เปลี่ยนค่าobjได้
 obj2 = Employee("monk" , 100)
 obj1.ShowData()
 obj2.ShowData()
