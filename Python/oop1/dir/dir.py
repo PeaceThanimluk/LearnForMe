@@ -15,3 +15,6 @@ obj1 = Employee("peace" , 10)
 obj2 = Employee("monk" , 100)
 
 print(dir(obj1))
+
+#เช็คว่าobjectมาจากclassอะไร
+print(obj1.__class__)
