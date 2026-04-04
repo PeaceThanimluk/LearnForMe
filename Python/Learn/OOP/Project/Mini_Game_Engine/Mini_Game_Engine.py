@@ -14,6 +14,7 @@ class Character(ABC):
         self.max_mp = mp
         self.level = 1
         self.exp = 0
+        self.inventory = Inventory() #Class
         #---attribute---
         self.hp = hp
         self.mp = mp
@@ -50,8 +51,6 @@ class Character(ABC):
         self.defense += 3
         print(f"{self.name} level up! , reach to Level.{self.level}")
 
-    
-
 # ===================================
 # PLAYER CLASS
 # ===================================
@@ -78,14 +77,30 @@ class Mage(Character):
         super().__init__(name, hp=80, mp=120, attack=10, defense=5)
         self.spell_power = 30
         self.skill = [Fireball()]
-
-
+    
+    def special_ability(self , target: Character) -> str:
+        cost = 40
+        if self.mp < cost:
+            return f"{self.name} not enough mp!"
+        self.mp -= cost
+        dmg = (self.spell_power * 3) - target.defense // 2
+        actual = target.take_damage(dmg)
+        return f"{self.name} use Meteor! deal {actual} magic damge!"
 
 # ===================================
 # ENEMY SYSTEM
 # ===================================
 class Enemy(Character):
-    pass
+    def __init__(self, name: str, hp: int, attack: int, defense: int, exp_reward: int):
+        super().__init__(name, hp=hp, mp=0, attack=attack, defense=defense)
+        self.exp_reward = exp_reward
+
+    def special_ability(self, target: Character) -> str:
+        dmg = int(self.attack * 1.5)
+        actual = target.take_damage(dmg)
+        return f"{self.name} use Berserk! deal {actual} damage"
+    
+    
 
 # ===================================
 # SKILL SYSTEM
@@ -102,7 +117,7 @@ class Skill(ABC):
         pass
         
 class Slash(Skill):
-    def __init__(self, name, mp_cost, description):
+    def __init__(self):
         super().__init__("Slash", 5, "Make more damage")
 
     def activate(self, user, target):
@@ -137,7 +152,7 @@ class Item(ABC):
         pass
 
 class HealthPotion(Item):
-    def __init__(self, heal_amount: 50):
+    def __init__(self, heal_amount: int = 50 ):
         super().__init__("Health Potion", f"heal Hp {heal_amount}")
         self.heal_amount = heal_amount
 
