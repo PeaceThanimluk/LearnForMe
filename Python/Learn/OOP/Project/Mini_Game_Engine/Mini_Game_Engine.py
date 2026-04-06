@@ -171,7 +171,7 @@ class HealthPotion(Item):
         return f"{target.name} use {self.name} heal {actual} Hp"
         
 class ManaPotion(Item):
-    def __init__(self, Mana_amount: 40):
+    def __init__(self, Mana_amount: int=40):
         super().__init__("Mana Potion", f"Increase mana {Mana_amount}")
         self.Mana_amount = Mana_amount
 
