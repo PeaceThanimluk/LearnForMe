@@ -67,7 +67,33 @@ def merge(left, right):
 
     return result
 
+#5.O(n^2) Quadratic / Nested Loop
 
+arr =  [1,2,3]
+
+for i in arr:
+    for j in arr:
+        print(i,j)
+
+
+#6. O(2^n) Exponential
+#เช่น fibonacci 
+
+def fib(n):
+    if n <= 1:
+        return n
+    return fib(n-1) + fib(n-2)
+
+#7. O(n!) Factorial เป็นการหาวิธีจัดเรียงเหมือนในคณิตศาสตร์
+
+from itertools import permutations
+
+arr = [1,2,3]
+
+for p in permutations(arr):
+    print(p)
+
+#มี3ตัวก็คือ 3! มี10ตัวก็มี10!
 
 
 
