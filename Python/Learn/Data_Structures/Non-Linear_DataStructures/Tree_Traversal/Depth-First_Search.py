@@ -13,7 +13,7 @@ DFS ใช้ทำอะไรได้บ้าง
 -หา Path
 
 DFS มี 3 รูปแบบคือ
-1.Pre-Prder(Root->Left->Right) มักใช้เพื่อคัดลอกโครงสร้างTree
+1.Pre-Order(Root->Left->Right) มักใช้เพื่อคัดลอกโครงสร้างTree
 2.In-Order(Left->Root->Right) มักใช้เพื่ให้ได้ข้อมูลเรียงลำดับจากน้อยไปมาก
 3.Post-Order(Left->Right->Root) มักใช้เพื่อลบ Tree หรือ คำนวณขนาดของ Tree
 
