@@ -8,7 +8,7 @@ root.title("MyGui")
 root.geometry("1920x1080")
 
 #Create Text
-mylabel = Label(text="HelloWorld",fg="red",font=20,bg="yellow").pack()
+mylabel = Label(root,text="HelloWorld",fg="red",font=20,bg="yellow").pack()
 
 #Run
 root.mainloop()

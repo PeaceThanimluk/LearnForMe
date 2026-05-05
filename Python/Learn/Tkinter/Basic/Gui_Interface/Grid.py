@@ -9,6 +9,7 @@ root.geometry("1920x1080")
 
 #Create Grid
 mylabel = Label(root,text="HelloWorld",fg="red",font=20,bg="yellow").grid(row=0,column=0)
+#Grid ใช้กับ pack กับ place ไม่ได้
 
 #Run
 root.mainloop()
